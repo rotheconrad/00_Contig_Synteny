@@ -2,13 +2,25 @@
 
 This workflow produces a gene synteny or gene neighborhood style plot placing arrows in the position and orientation of predicted gene regions on each contig in the set. Contigs are ordered along the y-axis by the user defined fasta file order, or, optionally, they can be ordered by contig length with the -y flag. Contigs are aligned along the x-axis by the first gene cluster that is shared between all contigs in the set, or, optionaly, they can be aligned by a user defined gene with the -x flag. The plot is output in png format and the legend is written to a separate png file.
 
-## Step 00: Required tools :: Python 3.6+, Prodigal and CD-HIT.
+## Step 00: Required tools :: Python 3.6+, Blast+, Prodigal and CD-HIT.
 
 ### Python 3.6+ for running the Python scripts in this repo.
 
 Information for installing and running Python can be found [here](https://www.python.org/). I recommend installing [mini conda](https://docs.conda.io/en/latest/miniconda.html) first and then creating an environment for Python 3.6+ and other tools for the project at hand.
 
 *All Python scripts in this repo were written for Python 3.6+. If you get a syntax error the first time you run a script, please first check your Python version.*
+
+### Blast+
+
+Installation Details for Blast+ can be found [here](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download).
+
+Or Blast+ can be easily installed using a [conda environment](https://docs.conda.io/en/latest/miniconda.html):
+
+```bash
+conda create -n blastplus
+conda activate blastplus
+conda install bioconda::blast=2.7.1 conda-forge::gnutls conda-forge::nettle
+```
 
 ### Prodigal for protein coding gene prediction.
  
