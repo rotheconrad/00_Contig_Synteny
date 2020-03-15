@@ -1,7 +1,5 @@
 # Workflow to explore shared genes and gene synteny for a group of metagenome assembled contigs (or draft genome assembly contigs) in fasta format.
 
-** WORK IN PROGRESS - THIS PROTOCOL IS NOT COMPLETE **
-
 This workflow produces a gene synteny or gene neighborhood style plot placing arrows in the position and orientation of predicted gene regions on each contig in the set. Contigs are ordered along the y-axis by the user defined fasta file order, or, optionally, they can be ordered by contig length with the -y flag. Contigs are aligned along the x-axis by the first gene cluster that is shared between all contigs in the set, or, optionaly, they can be aligned by a user defined gene cluster with the -x flag. The plot is output in png format and the legend is written to a separate png file.
 
 The idea is to identify a set of contigs containing a gene of interest using Blast+ (or other sequence alignment tool), predict CDS regions on the contigs (with Prodigal), cluster the predicted genes (with CD-HIT), and then plot the results for visual interpretation (with a Python script from this GitHub Repo). In the case that the sequence search identifies a certain gene on all contigs, but the gene prediction and clustering tools do not find the same gene cluster to be on all contigs, the contig(s) missing the alleged shared gene cluster will be centered on the x-axis for visual inspection compared to the other contigs. The CD-HIT clstr file can be modified to merge or adjust gene clusters manually if needed.
