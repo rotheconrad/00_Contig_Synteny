@@ -51,19 +51,19 @@ def parse_meta(meta):
         # skip/set header
         header = f.readline()
         # iterate through lines
-        for l in f:
+        for i, l in enumerate(f):
             # split each line by tab into list X
             X = l.rstrip().split(', ')
             # select subjectID from the first column
             queryID = X[0]
             # select annotation
-            if not X[1].isspace(): Annotation = X[1]
+            if X[1]: Annotation = X[1]
             else: Annotation = queryID
             # select color
             if len(X) == 3: color = X[2]
             else: color = ''
             # populate dictionary
-            meta_dict[queryID] = [Annotation, color]
+            meta_dict[queryID] = [i, Annotation, color]
 
     return meta_dict
 
@@ -82,6 +82,7 @@ def parse_data(blst, meta):
     if meta:
         meta_dict = parse_meta(meta)
         blast_dict['Colors'] = []
+        blast_dict['Order'] = []
 
     # open file
     with open(blst, 'r') as f:
@@ -95,34 +96,50 @@ def parse_data(blst, meta):
             pID = float(X[2])
             # if meta data is given match queryID to meta data
             if meta:
-                Annotation = meta_dict[queryID][0]
-                color = meta_dict[queryID][1]
+                order = meta_dict[queryID][0]
+                annotation = meta_dict[queryID][1]
+                color = meta_dict[queryID][2]
                 # populate dictionary
-                blast_dict['Gene'].append(Annotation)
+                blast_dict['Gene'].append(annotation)
                 blast_dict['Percent ID'].append(pID)
                 blast_dict['Colors'].append(color)
+                blast_dict['Order'].append(order)
             # otherwise use what is given
-            blast_dict['Gene'].append(queryID)
-            blast_dict['Percent ID'].append(pID)
+            else:
+                blast_dict['Gene'].append(queryID)
+                blast_dict['Percent ID'].append(pID)
 
     # convert blast_dict to pandas dataframe
     df = pd.DataFrame(blast_dict)
+    if meta: df = df.sort_values('Order')
 
     # return dataframe
     return df
 
 
-def contig_fishing_plot(df, outfile):
+def contig_fishing_plot(df, outfile, point_size):
     ''' Assumes a blast table has been loaded as a pandas dataframe.
         Builds a swarm plot of percent ID for each unique subject ID '''
 
     # Check for colors
-
+    if 'Colors' in df.columns:
+        colors = df['Colors'].unique()
+        colors = [x for x in colors if x]
+    if 'colors' in locals():
+        if colors: usecolor = colors
+        else: usecolor = None
+    else: usecolor = None
+    # How many genes to set height of figure
+    total_genes = df.Gene.unique()
+    scaler = len(total_genes)
     # initialize the plot
-    fig, ax = plt.subplots(figsize=(10,5))
+    fig, ax = plt.subplots(figsize=(scaler*1.5,scaler), dpi=300)
 
     # build the plot
-    ax = sns.swarmplot(x='Percent ID', y='Gene', data=df, ax=ax)
+    ax = sns.swarmplot(
+                x='Percent ID', y='Gene',
+                data=df, ax=ax, size=point_size, palette=usecolor
+                )
 
     # set grid style
     ax.minorticks_on()
@@ -161,6 +178,14 @@ def main():
         type=str,
         required=False
         )
+    parser.add_argument(
+        '-p', '--point_size',
+        help='(Optional) Change the size of the points on the plot.',
+        metavar='',
+        type=int,
+        required=False,
+        default=8
+        )
     args=vars(parser.parse_args())
 
     # Run this scripts main function
@@ -168,12 +193,13 @@ def main():
 
     blst = args['tab_blast_file']
     meta = args['metadata_file']
+    point_size = args['point_size']
     outfile = blst.split('.')[0] + '.png'
 
     # Read input files and parse the data
     df = parse_data(blst, meta)
     # Build the plot
-    contig_fishing_plot(df, outfile)
+    contig_fishing_plot(df, outfile, point_size)
 
 if __name__ == "__main__":
     main()

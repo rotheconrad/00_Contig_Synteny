@@ -1,0 +1,24 @@
+query name, annotation, color
+S_ruber_randomG_0057_111_1, Specific - Outer membrane efflux protein, #053061
+S_ruber_randomG_0057_111_3, Specific - heparan sulfate-glucosamine 3-sulfotransferase 5, #67001f
+S_ruber_randomG_0057_111_4, Specific - OmpR family two-component phosphate regulon response regulator, #2166ac
+S_ruber_randomG_0057_162_4, Specific - Glycosyl transferase family 2, #b2182b
+S_ruber_randomG_0057_162_7, Specific - Glycosyltransferase group 1, #4393c3
+S_ruber_randomG_0057_238_1, Specific - Putative glycosyl transferase family 1, #d6604d
+S_ruber_randomG_0057_238_2, Specific - Glycosyl transferase family 2, #d1e5f0
+S_ruber_randomG_0002_50_8, Rare - SusD/RagB family starch-binding outer membrane protein, #7f3b08
+S_ruber_randomG_0003_217_4, Rare - ArsR family Zn responsive transcriptional repressor, #2d004b
+S_ruber_randomG_0003_265_2, Rare -  ArsR family Pb/Cd/Zn/Bi responsive transcriptional repressor, #b35806
+S_ruber_randomG_0005_2_35, Rare - TonB-dependent outer membrane ferrienterochelin/colicins receptor, #542788
+S_ruber_randomG_0030_1_124, Rare - putative transcriptional regulator, #e08214
+S_ruber_randomG_0055_1_4, Rare - acid phosphatase type 7, #8073ac
+S_ruber_randomG_0065_316_2, Rare - Putative Fe2+ dicitrate transmembrane sensor, #fdb863
+S_ruber_randomG_0001_7_51, Core - dimethylsulfone monooxygenase, #276419
+S_ruber_randomG_0001_7_62, Core - branched-chain amino acid aminotransferase, #8e0152
+S_ruber_randomG_0001_29_17, Core - LytTR family two-component system response regulator, #4d9221
+S_ruber_randomG_0001_29_18, Core - LytTR family Histidine kinase family two-component system, #c51b7d
+S_ruber_randomG_0001_42_5, Core - propionyl-CoA carboxylase beta chain, #7fbc41
+S_ruber_randomG_0001_72_22, Core - ABC-2 type transport system ATP-binding protein, #de77ae
+S_ruber_randomG_0001_81_3, Core - SSS family solute:Na+/proline symporter, #b8e186
+S_ruber_randomG_0037_92_13, Core - NADH-quinone oxidoreductase subunit B, #f1b6da
+S_ruber_randomG_0081_65_1, Core - outer membrane receptor for ferrienterochelin and colicins, #e6f5d0

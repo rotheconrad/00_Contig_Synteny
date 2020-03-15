@@ -20,10 +20,13 @@ This script returns the following files:
     * input_file.fltrdBstHtsLst.txt
         Contains list of subject sequence names (contigs) for entries
         that passed the filter.
+    * input_file.metatemplate.txt
+        Contains header and gene names for meta file to use for 01b
 
 This script requires the following packages:
 
     * argparse
+    * collections.defaultdict
 
 -------------------------------------------
 Author :: Roth Conrad
@@ -37,6 +40,7 @@ All rights reserved
 '''
 
 import argparse
+from collections import defaultdict
 
 
 def best_hits(query_subject, bitscore, d, line, dups):
@@ -135,13 +139,27 @@ def filter_blast(infile, pml, pid, msl, verbose):
 
             if verbose: print(verbose_line)
 
-    outfile_blast = infile.split('.')[0] + '.fltrdBstHts.blst'
-    outfile_list = infile.split('.')[0] + '.fltrdBstHtsLst.txt'
-    with open(outfile_blast, 'w') as ob, open(outfile_list, 'w') as ol:
+    ibase = infile.split('.')[0]
+    query_sequence_set = defaultdict(list)
+    outfile_blast = ibase + '.fltrdBstHts.blst'
+    outfile_meta = ibase + '.metatemplate.txt'
+    with open(outfile_blast, 'w') as ob:
         for k,v in d.items():
             ob.write(v[0])
-            subject_sequence_name = v[0].split('\t')[1]
-            ol.write(subject_sequence_name)
+            X = v[0].split('\t')
+            subject_sequence_name = X[1]
+            query_sequence_name = X[0]
+            query_sequence_set[query_sequence_name].append(subject_sequence_name)
+
+    with open(outfile_meta, 'w') as om:
+        header = 'query name, annotation, color\n'
+        om.write(header)
+        for query, contigs in query_sequence_set.items():
+            om.write(f'{query}, \n')
+            outfile_list = ibase + f'_{query}.fltrdBstHtsLst.txt'
+            with open(outfile_list, 'a') as ol:
+                for contig in contigs:
+                    ol.write(contig + '\n')
 
     print('\nTotal number of entries in blast file:', total)
     print('Number of matches lower than pml:', low_pml)
@@ -186,7 +204,8 @@ def main():
         '-pml', '--percent_match_length',
         help=
             'Minimum Percent Match Length (in bps) to keep '
-            '(alignment length / query sequence length).',
+            '(alignment length / query sequence length). . . . '
+            '(Default = 50)',
         metavar='',
         type=float,
         required=False,
@@ -194,7 +213,9 @@ def main():
         )
     parser.add_argument(
         '-pid', '--percent_sequence_identity',
-        help='Minimum percent sequence identity to keep.',
+        help=
+            'Minimum percent sequence identity to keep. . . . '
+            '(Default = 70)',
         metavar='',
         type=float,
         required=False,
@@ -202,7 +223,9 @@ def main():
         )
     parser.add_argument(
         '-msl', '--minimum_subject_length',
-        help='Minimum length (in bps) of subject (contig) sequence to keep.',
+        help=
+            'Minimum length (in bps) of subject (contig)                '
+            'sequence to keep (Default = 1000).',
         metavar='',
         type=int,
         required=False,

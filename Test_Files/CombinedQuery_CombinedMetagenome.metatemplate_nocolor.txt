@@ -1,0 +1,24 @@
+query name, annotation, color
+S_ruber_randomG_0057_111_1, Specific - Outer membrane efflux protein
+S_ruber_randomG_0057_111_3, Specific - heparan sulfate-glucosamine 3-sulfotransferase 5
+S_ruber_randomG_0057_111_4, Specific - OmpR family two-component phosphate regulon response regulator
+S_ruber_randomG_0057_162_4, Specific - Glycosyl transferase family 2
+S_ruber_randomG_0057_162_7, Specific - Glycosyltransferase group 1
+S_ruber_randomG_0057_238_1, Specific - Putative glycosyl transferase family 1
+S_ruber_randomG_0057_238_2, Specific - Glycosyl transferase family 2
+S_ruber_randomG_0002_50_8, Rare - SusD/RagB family starch-binding outer membrane protein
+S_ruber_randomG_0003_217_4, Rare - ArsR family Zn responsive transcriptional repressor
+S_ruber_randomG_0003_265_2, Rare -  ArsR family Pb/Cd/Zn/Bi responsive transcriptional repressor
+S_ruber_randomG_0005_2_35, Rare - TonB-dependent outer membrane ferrienterochelin/colicins receptor
+S_ruber_randomG_0030_1_124, Rare - putative transcriptional regulator
+S_ruber_randomG_0055_1_4, Rare - acid phosphatase type 7
+S_ruber_randomG_0065_316_2, Rare - Putative Fe2+ dicitrate transmembrane sensor
+S_ruber_randomG_0001_7_51, Core - dimethylsulfone monooxygenase
+S_ruber_randomG_0001_7_62, Core - branched-chain amino acid aminotransferase
+S_ruber_randomG_0001_29_17, Core - LytTR family two-component system response regulator
+S_ruber_randomG_0001_29_18, Core - LytTR family Histidine kinase family two-component system
+S_ruber_randomG_0001_42_5, Core - propionyl-CoA carboxylase beta chain
+S_ruber_randomG_0001_72_22, Core - ABC-2 type transport system ATP-binding protein
+S_ruber_randomG_0001_81_3, Core - SSS family solute:Na+/proline symporter
+S_ruber_randomG_0037_92_13, Core - NADH-quinone oxidoreductase subunit B
+S_ruber_randomG_0081_65_1, Core - outer membrane receptor for ferrienterochelin and colicins

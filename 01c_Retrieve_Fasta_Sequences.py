@@ -91,7 +91,7 @@ def retrieve_fasta_sequence(cntg_list, assembly, outfile):
     with open(assembly, 'r') as fa, open(outfile, 'w') as o:
         for name, seq in read_fasta(fa):
             if name in cntgs:
-                o.write(f'{name}\n{seq}')
+                o.write(f'{name}\n{seq}\n')
 
 
     return True
@@ -136,7 +136,7 @@ def main():
     print('Running Script...')
     retrieve_fasta_sequence(
                     args['contig_list_file'],
-                    args['fasta_assembly_file']
+                    args['fasta_assembly_file'],
                     args['output_file_name']
                     )
 

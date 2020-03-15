@@ -1,0 +1,24 @@
+query name, , color
+S_ruber_randomG_0057_111_1, , #c6dbef
+S_ruber_randomG_0057_111_3, , #9ecae1
+S_ruber_randomG_0057_111_4, , #6baed6
+S_ruber_randomG_0057_162_4, , #4292c6
+S_ruber_randomG_0057_162_7, , #2171b5
+S_ruber_randomG_0057_238_1, , #08519c
+S_ruber_randomG_0057_238_2, , #08306b
+S_ruber_randomG_0002_50_8, , #d9f0a3
+S_ruber_randomG_0003_217_4, , #addd8e
+S_ruber_randomG_0003_265_2, , #78c679
+S_ruber_randomG_0005_2_35, , #41ab5d
+S_ruber_randomG_0030_1_124, , #238443
+S_ruber_randomG_0055_1_4, , #006837
+S_ruber_randomG_0065_316_2, , #004529
+S_ruber_randomG_0001_7_51, , #fff7f3
+S_ruber_randomG_0001_7_62, , #fde0dd
+S_ruber_randomG_0001_29_17, , #fcc5c0
+S_ruber_randomG_0001_29_18, , #fa9fb5
+S_ruber_randomG_0001_42_5, , #f768a1
+S_ruber_randomG_0001_72_22, , #dd3497
+S_ruber_randomG_0001_81_3, , #ae017e
+S_ruber_randomG_0037_92_13, , #7a0177
+S_ruber_randomG_0081_65_1, , #49006a
