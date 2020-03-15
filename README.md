@@ -193,6 +193,10 @@ The 04a_ContigSynteny_Plot.py script included in this GitHub Repo will take the 
 python 04a_ContigSynteny_Plot.py -c ContigsMatching_QUERYNAME.fasta -p ContigsMatching_QUERYNAME_genes.faa -r ContigsMatching_QUERYNAME_genes.cdhit.faa.clstr -o ContigsMatching_QUERYNAME_Synteny_Plot.png -y
 ```
 
+![alt text](Test_Files/ContigSequenceMatchesFor_S_ruber_randomG_0002_50_8_Synteny_Plot.png "Example contig Synteny plot using using default settings plus -y flag.")
+
+![alt text](Test_Files/ContigSequenceMatchesFor_S_ruber_randomG_0002_50_8_Synteny_Plot.png_lengend.png "Example contig Synteny plot legend using using default settings plus -y flag.")
+
 ## Step 05: Customize and Add Annotations
 
 The y-axis labels are straight from the contig names in the contig fasta file. Changing the sequence names in the contig fasta file will change the names on the plot.
