@@ -56,7 +56,6 @@ def Fasta_rename_sequences(infile, len_filter):
         )
 
 
-
 def main():
 
     # Configure Argument Parser

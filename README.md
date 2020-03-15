@@ -195,7 +195,7 @@ python 04a_ContigSynteny_Plot.py -c ContigsMatching_QUERYNAME.fasta -p ContigsMa
 
 ![alt text](Test_Files/ContigSequenceMatchesFor_S_ruber_randomG_0002_50_8_Synteny_Plot.png "Example contig Synteny plot using using default settings plus -y flag.")
 
-![alt text](Test_Files/ContigSequenceMatchesFor_S_ruber_randomG_0002_50_8_Synteny_Plot.png_lengend.png "Example contig Synteny plot legend using using default settings plus -y flag.")
+![alt text](Test_Files/ContigSequenceMatchesFor_S_ruber_randomG_0002_50_8_Synteny_Plot.png_legend.png "Example contig Synteny plot legend using using default settings plus -y flag.")
 
 ## Step 05: Customize and Add Annotations
 
