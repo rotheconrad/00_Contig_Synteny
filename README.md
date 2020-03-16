@@ -109,7 +109,7 @@ Example Metadata no color:
 
     query name, annotation, color
     name_one, geneA
-    name_two, , geneB
+    name_two, geneB
     name_three, geneC
 
 Example Metadata no annotation:
