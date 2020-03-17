@@ -143,7 +143,7 @@ python 01c_Retrieve_Fasta_Sequences.py -h
 python 01c_Retrieve_Fasta_Sequences.py -c input_file_QUERYNAME.fltrdBstHtsLst.txt -a Metagenome_Assembly_Used_as_Blast_db.fasta -o ContigsMatching_QUERYNAME.fasta
 ```
 
-*If you wish to change the y-axis labels of contig names you should rename the sequence labels in the ContigsMatching_QUERYNAME.fasta file before running Prodigal in Step 02. This can be done manually in a text editor. Change all the lines in the file starting with a '>' symbol to reflect a meaningful sample or experiment name etc... The name should not contain any spaces. Use an underscore for delimiting like: >Exp01_Site02_Smpl03*
+*If you wish to change the y-axis labels of contig names you should rename the sequence labels in the ContigsMatching_QUERYNAME.fasta file before running Prodigal in Step 02. This can be done manually in a text editor. Change all the lines in the file starting with a '>' symbol to reflect a meaningful sample or experiment name etc... The name should not contain any spaces. Use an underscore for delimiting like: >Exp01_Site02_Smpl03_AssemblyA_Contig01*
 
 ## Step 02: Predict gene regions on selected contigs with Prodigal.
 
