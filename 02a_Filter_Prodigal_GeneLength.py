@@ -50,8 +50,8 @@ def Fasta_rename_sequences(infile, len_filter):
                 i += 1
 
     print(
-        f'\nRemoved {i} sequences shorter than {lenfltr} characters '
-        f'out of {c} total sequences. Sequences passing filter written '
+        f'\nRemoved {c-i} sequences shorter than {len_filter} characters '
+        f'out of {c} total sequences.\n {i} Sequences passing filter written '
         f'to file: {outfile}. Happy sciencing super sciencer!\n\n'
         )
 
@@ -80,6 +80,7 @@ def main():
         required=False,
         default=300
         )
+    args=vars(parser.parse_args())
 
     print('\n\nRunning Script ...')
     # Do what you came here to do
