@@ -54,8 +54,10 @@ The recommended strategy here is to use Blast+ or some other sequence search too
 
 #### Example Command: Tabular Blast+ with added sequence lengths
 
+*The gene sequences should be used as the query file and the metagenome assembled contigs should be used as the blast database or subject sequences. The downstream scripts expect the genes to be in the first column of the tabular blast output file and the metagenome assebled contigs to be in the second column.*
+
 ```bash
-blastn -task 'megablast' -evalue 0.01 -max_target_seqs 20 -num_threads 2 -db {pathto_db} -query {input_fasta} -out {outfile_name} -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'
+blastn -task 'megablast' -evalue 0.01 -max_target_seqs 20 -num_threads 2 -db {metagenome_assembled_contigs.fasta} -query {gene_sequences.fasta} -out {outfile_name} -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'
 ```
 
 If you've used the above sequence search method, you can filter your results with 01a_BlastTab_BestHit_Filter.py Python script included in this GitHub Repo. You can decide the minimum percent sequence similarity (Default = 70%), the (alignment length / query sequence length) ratio * 100 (Percent match length: Default = 50), and minimum contig size (Default = 1000 base pairs).
