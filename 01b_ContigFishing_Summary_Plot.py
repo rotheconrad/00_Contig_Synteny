@@ -117,7 +117,7 @@ def parse_data(blst, meta):
     return df
 
 
-def contig_fishing_plot(df, outfile, point_size):
+def contig_fishing_plot(df, outfile, point_size, xmin, xmax):
     ''' Assumes a blast table has been loaded as a pandas dataframe.
         Builds a swarm plot of percent ID for each unique subject ID '''
 
@@ -140,7 +140,10 @@ def contig_fishing_plot(df, outfile, point_size):
                 x='Percent ID', y='Gene',
                 data=df, ax=ax, size=point_size, palette=usecolor
                 )
-
+    ax.set_xlim([xmin-1,xmax+1])
+    ax.tick_params(axis='both', labelsize=18)
+    ax.set_xlabel('Percent ID', fontsize=24)
+    ax.set_ylabel('')
     # set grid style
     ax.minorticks_on()
     ax.tick_params(axis='y', which='minor', left=False)
@@ -186,6 +189,22 @@ def main():
         required=False,
         default=8
         )
+    parser.add_argument(
+        '-xmin', '--set_xaxis_minimum',
+        help='(Optional) Set the x-axis minimum (Default = 70).',
+        metavar='',
+        type=float,
+        required=False,
+        default=70.0
+        )
+    parser.add_argument(
+        '-xmax', '--set_xaxis_maximum',
+        help='(Optional) Set the x-axis maximum (Default = 100).',
+        metavar='',
+        type=float,
+        required=False,
+        default=100.0
+        )
     args=vars(parser.parse_args())
 
     # Run this scripts main function
@@ -194,12 +213,14 @@ def main():
     blst = args['tab_blast_file']
     meta = args['metadata_file']
     point_size = args['point_size']
+    xmin = args['set_xaxis_minimum']
+    xmax = args['set_xaxis_maximum']
     outfile = blst.split('.')[0] + '.png'
 
     # Read input files and parse the data
     df = parse_data(blst, meta)
     # Build the plot
-    contig_fishing_plot(df, outfile, point_size)
+    contig_fishing_plot(df, outfile, point_size, xmin, xmax)
 
 if __name__ == "__main__":
     main()
